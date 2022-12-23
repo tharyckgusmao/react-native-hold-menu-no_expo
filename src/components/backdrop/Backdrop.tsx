@@ -1,36 +1,27 @@
 import React, { memo } from 'react';
-import { StyleSheet } from 'react-native';
+import {
+  TapGestureHandler,
+  TapGestureHandlerGestureEvent
+} from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedProps,
   useAnimatedStyle,
   withDelay,
-  withTiming,
+  withTiming
 } from 'react-native-reanimated';
-import {
-  TapGestureHandler,
-  TapGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
 
 // Components
 import { BlurView } from '@react-native-community/blur';
 // Utils
-import { styles } from './styles';
 import {
   CONTEXT_MENU_STATE,
-  HOLD_ITEM_TRANSFORM_DURATION,
-  IS_IOS,
-  WINDOW_HEIGHT,
+  HOLD_ITEM_TRANSFORM_DURATION, WINDOW_HEIGHT
 } from '../../constants';
-import {
-  BACKDROP_LIGHT_BACKGROUND_COLOR,
-  BACKDROP_DARK_BACKGROUND_COLOR,
-} from './constants';
 import { useInternal } from '../../hooks';
+import { styles } from './styles';
 
-const AnimatedBlurView = IS_IOS
-  ? Animated.createAnimatedComponent(BlurView)
-  : Animated.View;
+const AnimatedBlurView = Animated.createAnimatedComponent(BlurView)
 
 type Context = {
   startPosition: {
@@ -93,8 +84,8 @@ const BackdropComponent = () => {
 
   const animatedContainerProps = useAnimatedProps(() => {
     return {
-      intensity: withTiming(
-        state.value === CONTEXT_MENU_STATE.ACTIVE ? 100 : 0,
+      blurAmount: withTiming(
+        state.value === CONTEXT_MENU_STATE.ACTIVE ? 0 : 2,
         {
           duration: HOLD_ITEM_TRANSFORM_DURATION,
         }
@@ -102,28 +93,17 @@ const BackdropComponent = () => {
     };
   });
 
-  const animatedInnerContainerStyle = useAnimatedStyle(() => {
-    const backgroundColor =
-      theme.value === 'light'
-        ? BACKDROP_LIGHT_BACKGROUND_COLOR
-        : BACKDROP_DARK_BACKGROUND_COLOR;
-
-    return { backgroundColor };
-  }, [theme]);
 
   return (
     <TapGestureHandler onHandlerStateChange={tapGestureEvent}>
       <AnimatedBlurView
         // @ts-ignore
+        overlayColor={"#00000030"}
+        reducedTransparencyFallbackColor={"#00000030"}
         animatedProps={animatedContainerProps}
         style={[styles.container, animatedContainerStyle]}
       >
-        <Animated.View
-          style={[
-            { ...StyleSheet.absoluteFillObject },
-            animatedInnerContainerStyle,
-          ]}
-        />
+ 
       </AnimatedBlurView>
     </TapGestureHandler>
   );

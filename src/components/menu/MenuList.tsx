@@ -33,7 +33,6 @@ import { useInternal } from '../../hooks';
 import { deepEqual } from '../../utils/validations';
 import { leftOrRight } from './calculations';
 
-const AnimatedView = Animated.createAnimatedComponent(BlurView);
 
 const MenuListComponent = () => {
   const { state, theme, menuProps } = useInternal();
@@ -107,7 +106,7 @@ const MenuListComponent = () => {
   }, [theme]);
 
   const animatedProps = useAnimatedProps(() => {
-    return { tint: theme.value };
+    return { blurAmount: 10 };
   }, [theme]);
 
   const setter = (items: MenuItemProps[]) => {
@@ -126,9 +125,9 @@ const MenuListComponent = () => {
   );
 
   return (
-    <AnimatedView
-      intensity={100}
-      animatedProps={animatedProps}
+    <Animated.View
+
+
       style={[styles.menuContainer, messageStyles]}
     >
       <Animated.View
@@ -140,7 +139,7 @@ const MenuListComponent = () => {
       >
         <MenuItems items={itemList} />
       </Animated.View>
-    </AnimatedView>
+    </Animated.View>
   );
 };
 
