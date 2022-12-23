@@ -1575,6 +1575,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@react-native-community/blur@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/blur/-/blur-4.3.0.tgz#e5018b3b0bd6de9632ac6cf34e9f8e0f1a9a28ec"
+  integrity sha512-d6phh39kKcbZ4IluDftiVWqfeFOgjl1AbQWzN47x+hLKQ5GvQJ6QhRvgAuDZ+xbJksrbXgNpMjVYkjsbcVehxg==
+
 "@react-native-community/cli-clean@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-clean/-/cli-clean-8.0.0.tgz#c8fc6e8d6a84c90ca0839d48080a87ad455613db"
@@ -3119,11 +3124,6 @@ expo-asset@~8.6.1:
     path-browserify "^1.0.0"
     url-parse "^1.5.9"
 
-expo-blur@~11.2.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-11.2.0.tgz#8f5615e978b801c4e336b5294b72c127d8663b89"
-  integrity sha512-bj16aFGqsp7amJZiLvZt2nuwpKVJNCRcf/1c6NaCNrXCnXt/J8MloachNV0VoiiNKfKDV6EJTn+Jwo1sctchCA==
-
 expo-constants@~13.2.2:
   version "13.2.2"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-13.2.2.tgz#9ba47f2e2e4885f9989f5ca45d21987bcc45424d"
@@ -3151,11 +3151,6 @@ expo-font@~10.2.0:
   integrity sha512-2V4EcpmhNoppaLn+lPprZVS+3bmV9hxLPKttKh2u8ghjH/oX9bv3u4JVo77SYh0EfrWO4toqVyXn8pXH8GpbIg==
   dependencies:
     fontfaceobserver "^2.1.0"
-
-expo-haptics@~11.3.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-11.3.0.tgz#74283bd212a86f16ff2d6b0125e2a9604c940523"
-  integrity sha512-mQYSZsJ7LcdM2b8JecrV2qEw9ymNzGleS/+bpufdHZ+n5tCnWZXiMvZFFczaExHfaeGY3nGQvH1RjEOFIXSfig==
 
 expo-keep-awake@~10.2.0:
   version "10.2.0"
